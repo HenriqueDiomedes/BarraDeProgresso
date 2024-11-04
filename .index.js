@@ -1,15 +1,17 @@
 let valorBarra = document.querySelector('.valor_barra');
 let barra = document.querySelector('.barra');
 
-let valorAtualBarra = 0;
-let valorFinalBarra = 60;   /*até onde a barra vai preencher*/
+let segundos = 0;
+let tempoTotal = 60;
 
-let progresso = setInterval(()=>{
-    valorAtualBarra++;
-    valorBarra.textContent = `${valorAtualBarra}%`;
-    barra.style.background = `conic-gradient(rgb(78, 236, 20) ${valorAtualBarra * 3.6}deg, rgb(230, 244, 244) 0deg)`;
-    if (valorAtualBarra == valorFinalBarra){
-        clearInterval(progresso);
-    };
-
-}, 1000);   /*velocidade de ppreenchimento da barra*/
+let cores = ["rgb(78, 236, 20)", "rgb(20, 78, 236)", "rgb(255, 06, 0)"];
+let corAtual = 0;
+let progresso = setInterval(() => {
+    segundos++;
+    valorBarra.textContent = `${segundos}s`;
+    barra.style.background = `conic-gradient(${cores[corAtual]} ${segundos * (360 / tempoTotal)}deg, rgb(230, 244, 244) 0deg)`;
+    if(segundos === tempoTotal){
+        segundos = 0;
+        corAtual = (corAtual + 1) % cores.length;
+    }
+},1000);
