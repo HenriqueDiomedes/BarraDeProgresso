@@ -1,17 +1,29 @@
-let valorBarra = document.querySelector('.valor_barra');
 let barra = document.querySelector('.barra');
+let relogio = document.querySelector('.relogio');
 
-let segundos = 0;
-let tempoTotal = 60;
+let tempoTotal = 60; // Total de segundos para completar o círculo
 
-let cores = ["rgb(78, 236, 20)", "rgb(20, 78, 236)", "rgb(255, 06, 0)"];
+// Lista de cores para alternar a cada minuto
+let cores = ["rgb(78, 236, 20)", "rgb(236, 78, 20)", "rgb(20, 78, 236)", "rgb(255, 206, 0)"];
 let corAtual = 0;
-let progresso = setInterval(() => {
-    segundos++;
-    valorBarra.textContent = `${segundos}s`;
-    barra.style.background = `conic-gradient(${cores[corAtual]} ${segundos * (360 / tempoTotal)}deg, rgb(230, 244, 244) 0deg)`;
-    if(segundos === tempoTotal){
-        segundos = 0;
+
+// Função para atualizar o relógio
+function atualizarRelogio() {
+    let agora = new Date();
+    let horas = agora.getHours().toString().padStart(2, '0');
+    let minutos = agora.getMinutes().toString().padStart(2, '0');
+    let segundos = agora.getSeconds().toString().padStart(2, '0');
+    relogio.textContent = `${horas}:${minutos}:${segundos}`;
+
+    // Atualiza o ângulo da barra de progresso com base nos segundos
+    let angulo = segundos * (360 / tempoTotal);
+    barra.style.background = `conic-gradient(${cores[corAtual]} ${angulo}deg, rgb(230, 244, 244) 0deg)`;
+
+    // Muda para a próxima cor ao completar um minuto
+    if (segundos == 0) {
         corAtual = (corAtual + 1) % cores.length;
     }
-},1000);
+}
+
+// Atualiza o relógio e a barra de progresso a cada segundo
+setInterval(atualizarRelogio, 1000);

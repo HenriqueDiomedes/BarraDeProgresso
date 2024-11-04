@@ -1,14 +1,14 @@
 @charset "UTF-8";
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     color: rgb(37, 37, 37);
 }
 
-body{
+body {
     height: 100vh;
     background-color: rgb(145, 10, 155);
     display: flex;
@@ -16,7 +16,7 @@ body{
     align-items: center;
 }
 
-.skill{
+.skill {
     width: 450px;
     height: 450px;
     background-color: white;
@@ -28,29 +28,28 @@ body{
     flex-direction: column;
 }
 
-p{
+p {
     font-size: 30px;
 }
 
-span{
+.relogio {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 50px;
-    
+    font-size: 40px;
+    color: rgb(37, 37, 37); /* Cor do texto do relógio */
 }
 
-.barra{
+.barra {
     position: relative;
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    background: conic-gradient(rgb(56, 202, 3)30deg, rgb(230, 224, 224) 0deg);
-
+    background: conic-gradient(rgb(56, 202, 3) 30deg, rgb(230, 224, 224) 0deg);
 }
 
-.barra::before{
+.barra::before {
     content: "";
     position: absolute;
     background-color: rgb(255, 255, 255);
