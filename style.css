@@ -1,4 +1,11 @@
 @charset "UTF-8";
+
+@font-face{
+    font-family: "fonteRelogio";
+    src: url(Fontes/Anthracite.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
 * {
     margin: 0;
     padding: 0;
@@ -33,6 +40,8 @@ p {
 }
 
 .relogio {
+    font-family: 'fonteRelogio';
+    text-shadow: 0.5px 0.5px 5px red;
     position: absolute;
     top: 50%;
     left: 50%;
