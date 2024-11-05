@@ -2,7 +2,7 @@
 
 @font-face{
     font-family: "fonteRelogio";
-    src: url(Fontes/Anthracite.ttf);
+    src: url(Fontes/BITEME.TTF);
     font-weight: normal;
     font-style: normal;
 }
@@ -41,12 +41,12 @@ p {
 
 .relogio {
     font-family: 'fonteRelogio';
-    text-shadow: 0.5px 0.5px 5px red;
+    text-shadow: 0.5px 0.5px 5px rgb(5, 0, 0);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 40px;
+    font-size: 50px;
     color: rgb(37, 37, 37); /* Cor do texto do relógio */
 }
 
